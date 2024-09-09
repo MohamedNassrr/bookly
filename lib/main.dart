@@ -2,6 +2,7 @@ import 'package:bookly/constance.dart';
 import 'package:bookly/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 // MVVM Pattern
 
@@ -18,6 +19,7 @@ class BooklyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: mainBackground,
+        textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
       ),
       home: const SplashView(),
     );
