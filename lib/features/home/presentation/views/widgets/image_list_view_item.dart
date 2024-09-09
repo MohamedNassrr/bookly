@@ -1,8 +1,8 @@
 import 'package:bookly/core/utils/assets_data.dart';
 import 'package:flutter/material.dart';
 
-class ImageListViewItem extends StatelessWidget {
-  const ImageListViewItem({super.key});
+class FeaturedListViewItem extends StatelessWidget {
+  const FeaturedListViewItem({super.key});
 
   @override
   Widget build(BuildContext context) {

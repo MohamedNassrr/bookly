@@ -30,7 +30,7 @@ class FeaturedBookListView extends StatelessWidget {
             padding:  EdgeInsets.symmetric(
               horizontal: 8.0,
             ),
-            child:  ImageListViewItem(),
+            child:  FeaturedListViewItem(),
           );
         },
       ),
