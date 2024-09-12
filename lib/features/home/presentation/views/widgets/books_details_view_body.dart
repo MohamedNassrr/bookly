@@ -1,5 +1,6 @@
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
+import 'package:bookly/features/home/presentation/views/widgets/books_action_button.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_books_details_appbar.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
@@ -9,14 +10,13 @@ class BooksDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     var width = MediaQuery.of(context).size.width;
 
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 30,
       ),
-      child:  Column(
+      child: Column(
         children: [
           const CustomBooksDetailAppBar(),
           Padding(
@@ -42,9 +42,7 @@ class BooksDetailsViewBody extends StatelessWidget {
             child: Text(
               'Rudyard Kipling',
               style: Styles.textStyle18.copyWith(
-                fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.w500
-              ),
+                  fontStyle: FontStyle.italic, fontWeight: FontWeight.w500),
             ),
           ),
           const SizedBox(
@@ -53,8 +51,13 @@ class BooksDetailsViewBody extends StatelessWidget {
           const BookRating(
             mainAxisAlignment: MainAxisAlignment.center,
           ),
+          const SizedBox(
+            height: 37,
+          ),
+          const BookActionButton(),
         ],
       ),
     );
   }
 }
+
