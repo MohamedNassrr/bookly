@@ -1,13 +1,14 @@
 import 'package:bookly/features/home/presentation/views/widgets/home_widget/best_seller_item.dart';
 import 'package:flutter/material.dart';
 
-class BookSellerListView extends StatelessWidget {
-  const BookSellerListView({super.key});
+class SearchResultList extends StatelessWidget {
+  const SearchResultList({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      physics: const NeverScrollableScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
+      shrinkWrap: true,
       padding: EdgeInsets.zero,
       itemCount: 10,
       itemBuilder: (context, index) {
