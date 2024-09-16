@@ -25,7 +25,7 @@ class HomeRepoImpl implements HomeRepo {
         return left(ServerFailures.fromDioError(e));
       }
       return left(ServerFailures(e.toString()));
-    }c
+    }
   }
 
   @override
