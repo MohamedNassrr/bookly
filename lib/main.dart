@@ -1,5 +1,6 @@
 import 'package:bookly/constance.dart';
 import 'package:bookly/core/utils/app_router.dart';
+import 'package:bookly/core/utils/bloc_observer.dart';
 import 'package:bookly/core/utils/service_locator.dart';
 import 'package:bookly/features/home/data/repos/home_repo_impl.dart';
 import 'package:bookly/features/home/presentation/view_models/feature_books_cubit/featured_books_cubit.dart';
@@ -11,6 +12,8 @@ import 'package:google_fonts/google_fonts.dart';
 // MVVM Pattern
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = MyBlocObserver();
   setupServiceLocator();
   runApp(const BooklyApp());
 }
@@ -30,7 +33,7 @@ class BooklyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => NewestBooksCubit(
             getIt.get<HomeRepoImpl>(),
-          ),
+          )..fetchNewestBooks(),
         ),
       ],
       child: MaterialApp.router(
