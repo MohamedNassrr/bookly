@@ -11,11 +11,15 @@ class BooksSellerListItem extends StatelessWidget {
   const BooksSellerListItem({super.key, required this.bookModel});
 
   final BookModel bookModel;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        GoRouter.of(context).push(AppRouter.booksDetailsView);
+      onTap: () {
+        GoRouter.of(context).push(
+          AppRouter.booksDetailsView,
+          extra: bookModel,
+        );
       },
       child: SizedBox(
         height: 125,
@@ -64,7 +68,7 @@ class BooksSellerListItem extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
-                       BookRating(
+                      BookRating(
                         rating: bookModel.volumeInfo.averageRating ?? 0,
                         counting: bookModel.volumeInfo.ratingsCount ?? 0,
                       ),
@@ -79,4 +83,3 @@ class BooksSellerListItem extends StatelessWidget {
     );
   }
 }
-
