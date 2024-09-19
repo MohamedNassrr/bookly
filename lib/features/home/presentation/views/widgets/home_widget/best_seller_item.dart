@@ -22,7 +22,7 @@ class BooksSellerListItem extends StatelessWidget {
         child: Row(
           children: [
             CustomBookImage(
-              imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
+              imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
             ),
             const SizedBox(
               width: 30.0,
@@ -49,6 +49,7 @@ class BooksSellerListItem extends StatelessWidget {
                     bookModel.volumeInfo.authors![0],
                     style: Styles.textStyle14.copyWith(
                       color: Colors.grey,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   const SizedBox(

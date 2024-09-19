@@ -12,7 +12,7 @@ class ServerFailures extends Failures{
   factory ServerFailures.fromDioError(DioException dioError){
     switch(dioError.type){
       case DioExceptionType.connectionTimeout:
-        return ServerFailures('connection timeout in apiServer');
+        return ServerFailures('no internet connection');
       case DioExceptionType.sendTimeout:
         return ServerFailures('send timeout in apiServer');
       case DioExceptionType.receiveTimeout:
