@@ -9,12 +9,14 @@ class BooksAction extends StatelessWidget {
     required this.textColor,
     required this.text,
     this.textSize,
+    this.onPressed,
   });
 
   final BorderRadius? borderRadius;
   final Color backGroundColor;
   final Color textColor;
   final String text;
+  final void Function()? onPressed;
   final double? textSize;
 
   @override
@@ -28,7 +30,7 @@ class BooksAction extends StatelessWidget {
             borderRadius: borderRadius ?? BorderRadius.circular(16),
           ),
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           text,
           style: Styles.textStyle18.copyWith(

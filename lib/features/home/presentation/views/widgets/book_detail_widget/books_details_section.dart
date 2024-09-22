@@ -1,10 +1,14 @@
 import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/features/home/data/models/book_model/Book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_detail_widget/books_action_button.dart';
+import 'package:bookly/features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key});
+  const BookDetailsSection({super.key, required this.book});
+
+  final BookModel book;
 
   @override
   Widget build(BuildContext context) {
@@ -17,17 +21,19 @@ class BookDetailsSection extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: width * .2,
           ),
-          child: const CustomBookImage(
-            imageUrl: 'https://img.freepik.com/free-vector/modern-company-annual-report-business-red-template_1017-33566.jpg?w=740&t=st=1726754077~exp=1726754677~hmac=3c68a9bc8d4ee9db5432a425cc0d5148d180c623eaaa8468c42ae9ee017ea653',
+          child:  CustomBookImage(
+           imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? '',
           ),
         ),
         const SizedBox(
           height: 33,
         ),
         Text(
-          'The Jungle Book',
+          book.volumeInfo.title!,
+          textAlign: TextAlign.center,
           style: Styles.textStyle30.copyWith(
             fontWeight: FontWeight.bold,
+
           ),
         ),
         const SizedBox(
@@ -36,21 +42,28 @@ class BookDetailsSection extends StatelessWidget {
         Opacity(
           opacity: .7,
           child: Text(
-            'Rudyard Kipling',
+            book.volumeInfo.authors?[0] ?? '',
             style: Styles.textStyle18.copyWith(
-                fontStyle: FontStyle.italic, fontWeight: FontWeight.w500),
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
         const SizedBox(
           height: 16,
         ),
-        //  BookRating(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        // ),
+        BookRating(
+          mainAxisAlignment: MainAxisAlignment.center,
+          rating: book.volumeInfo.averageRating ?? 0,
+          counting: book.volumeInfo.ratingsCount ?? 0,
+        ),
         const SizedBox(
           height: 37,
         ),
-        const BookActionButton(),
+        BookActionButton(
+          bookModel: book,
+        ),
+
       ],
     );
   }
